@@ -1,0 +1,7 @@
+substitutions:
+  _REPO_NAME: '-'
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'europe-west2-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/dbt-on-cloud-run', '.' ]
+images: [ 'europe-west2-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/dbt-on-cloud-run' ]

@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dbt-on-cloud-run"
+version = "0.1.0"
+description = "DBT core on cloud run"
+authors = ["Richard He <shenghua.he@rocketech.co.uk>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dbt-core = "1.7.14"
+dbt-bigquery = "~1.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

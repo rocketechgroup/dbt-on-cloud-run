@@ -1,0 +1,10 @@
+jaffle_shop:
+
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: rocketech-de-pgcp-sandbox
+      dataset: dbt_on_cloudrun_demo
+      threads: 24
