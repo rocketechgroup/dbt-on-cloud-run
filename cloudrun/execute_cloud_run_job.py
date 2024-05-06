@@ -33,13 +33,23 @@ def run_job_sync(project_id, location, job_id, override_args):
     print(response)
 
 
-async def run_job_async(project_id, location, job_id):
+async def run_job_async(project_id, location, job_id, override_args):
+    """
+    Run a job asynchronously.
+    """
     # Create a client
     client = run_v2.JobsAsyncClient()
 
     # Initialize request argument(s)
     request = run_v2.RunJobRequest(
         name=f"projects/{project_id}/locations/{location}/jobs/{job_id}",
+        overrides=run_v2.types.RunJobRequest.Overrides(
+            container_overrides=[
+                run_v2.types.RunJobRequest.Overrides.ContainerOverride(
+                    args=override_args
+                )
+            ]
+        )
     )
 
     # Make the request
@@ -65,4 +75,5 @@ override_args = ["poetry", "run", "dbt", "debug", "--target", "dev"]
 run_job_sync(project_id, location, job_id, override_args=override_args)
 
 # Async submission
-# asyncio.run(run_job_async(project_id, location, job_id))
+override_args = ["poetry", "run", "dbt", "run", "--full-refresh", "--target", "dev"]
+asyncio.run(run_job_async(project_id, location, job_id, override_args))
