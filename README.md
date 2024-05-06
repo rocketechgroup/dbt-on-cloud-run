@@ -9,8 +9,8 @@ Execute DBT core on Cloud Run Job
 - Docker
 - Load the seed data under `dbt/seeds`
 - Update the following in `dbt/profiles.yml` to match to your environment:
-    - project: <change to yours>
-    - dataset: <change to yours>
+    - project: `<change to yours>`
+    - dataset: `<change to yours>`
 
 ## How to run locally
 
